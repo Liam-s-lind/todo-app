@@ -35,7 +35,7 @@ function App() {
       <p>Antal uppgifter: {todos.length}</p>
 
       <ul>
-      {todos.map(function (todo) { return <li key={todo}>{todo}</li>; })}
+      {todos.map((todo) => (<li key={todo}>{todo}</li>))}
       </ul>
       
       <button type="button" onClick={CleaarList}>Clear</button>
