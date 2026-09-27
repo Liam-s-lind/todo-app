@@ -1,5 +1,4 @@
 import { useState } from "react";
-import './App.css';
 
 function App() {
   const [todos, setTodos] = useState([
@@ -35,16 +34,15 @@ function App() {
       <h1>Övnings-todo</h1>
       <p>Antal uppgifter: {todos.length}</p>
       <ul>
-      {todos.map((t) => (
-      <li key={t}>{t}</li>
-      ))}
+      <li>{todos[0]}</li>
+      <li>{todos[1]}</li>
+      <li>{todos[2]}</li>
       </ul>
       
       <button type="button" onClick={CleaarList}>Clear</button>
       <input type="text" value={draft} onChange={handleChange} placeholder="Skriv uppgift..." />
       <button type="button" onClick={handleClear}>Rensa</button>
       <p>Kladd just nu: {draft}</p>
-      <button type="button" onClick={handleAdd}>Lägg till</button>
     </main>
   );
 }
