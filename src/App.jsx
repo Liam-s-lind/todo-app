@@ -1,18 +1,29 @@
 import { useState } from "react";
+import './App.css';
 
 function App() {
   const [todos, setTodos] = useState([
-    "Lära useState",
-    "Se re-render",
-    "Ta helg kl 16",
-  ]);
+    "Koka te",
+    "Jogga",
+    "Äta",
+    "Träna",
+  ]); /* useState används eftersom värdet bevaras mellan renderingar och setTodos uppdaterar gränssnittet, medan [todos, setTodos] packar upp hookens värde och uppdateringsfunktion och en vanlig let varken bevaras eller orsakar omrendering.  */
+
   const [draft, setDraft] = useState("");
 
   function handleChange(e) {
     setDraft(e.target.value);
   }
 
-  function handleAdd() {
+  function CleaarList(){
+    setTodos([]);
+  }
+
+  function handleClear() {
+    setDraft("");
+  }
+
+   function handleAdd() {
     const text = draft.trim();
     if (text === "") return;
     setTodos([...todos, text]);
@@ -21,20 +32,19 @@ function App() {
 
   return (
     <main>
-      <h1>Min Todo-app</h1>
+      <h1>Övnings-todo</h1>
       <p>Antal uppgifter: {todos.length}</p>
-      <input
-        type="text"
-        value={draft}
-        onChange={handleChange}
-        placeholder="Ny uppgift"
-      />
-
       <ul>
-        <li>{todos[0]}</li>
-        <li>{todos[1]}</li>
-        <li>{todos[2]}</li>
+      {todos.map((t) => (
+      <li key={t}>{t}</li>
+      ))}
       </ul>
+      
+      <button type="button" onClick={CleaarList}>Clear</button>
+      <input type="text" value={draft} onChange={handleChange} placeholder="Skriv uppgift..." />
+      <button type="button" onClick={handleClear}>Rensa</button>
+      <p>Kladd just nu: {draft}</p>
+      <button type="button" onClick={handleAdd}>Lägg till</button>
     </main>
   );
 }
