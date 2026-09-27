@@ -29,9 +29,7 @@ function App() {
         onChange={handleChange}
         placeholder="Ny uppgift"
       />
-      <button type="button" onClick={handleAdd}>
-        Lägg till
-      </button>
+
       <ul>
         <li>{todos[0]}</li>
         <li>{todos[1]}</li>
