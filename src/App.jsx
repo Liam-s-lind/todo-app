@@ -29,13 +29,24 @@ function App() {
     setDraft("");
   }
 
+  function handleRemove(textToRemove) {
+    setTodos(todos.filter((todo) => todo !== textToRemove));
+  }
+
   return (
     <main>
       <h1>Övnings-todo</h1>
       <p>Antal uppgifter: {todos.length}</p>
 
       <ul>
-      {todos.map((todo) => (<li key={todo}>{todo}</li>))}
+        {todos.map((todo) => (
+          <li key={todo}>
+            {todo}
+            <button type="button" onClick={function () { handleRemove(todo); }}>
+              Ta bort
+            </button>
+          </li>
+        ))}
       </ul>
       
       <button type="button" onClick={CleaarList}>Clear</button>
