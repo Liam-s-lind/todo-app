@@ -33,16 +33,20 @@ function App() {
     <main>
       <h1>Övnings-todo</h1>
       <p>Antal uppgifter: {todos.length}</p>
+      /* TODO: detta skalar inte — behöver loop */
       <ul>
       <li>{todos[0]}</li>
       <li>{todos[1]}</li>
       <li>{todos[2]}</li>
+      <li>{todos[3]}</li>
+      <li>{todos[4]}</li>
       </ul>
       
       <button type="button" onClick={CleaarList}>Clear</button>
       <input type="text" value={draft} onChange={handleChange} placeholder="Skriv uppgift..." />
       <button type="button" onClick={handleClear}>Rensa</button>
       <p>Kladd just nu: {draft}</p>
+      <button type="button" onClick={handleAdd}>Lägg till</button>
     </main>
   );
 }
