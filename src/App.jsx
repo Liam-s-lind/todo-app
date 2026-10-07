@@ -21,6 +21,12 @@ function app () {
     setInputText('')
   }
 
+    function handleDeleteTodo(id) {
+    setTodos((currentTodos) =>
+    currentTodos.filter((todo) => todo.id !== id)
+    )
+  }
+
     function handleToggleTodo(id) {
     setTodos((currentTodos) =>
     currentTodos.map((todo) =>
