@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './app.css'
+import './App.css'
 
 function app () {
   const [todos, setTodos] = useState([])
@@ -21,6 +21,32 @@ function app () {
     setInputText('')
   }
 
+  function handleToggleTodo(id) {
+  setTodos((currentTodos) =>
+    currentTodos.map((todo) =>
+      todo.id === id
+        ? { ...todo, completed: !todo.completed }
+        : todo
+    )
+  )
+}
+
+function handleToggleTodo(id) {
+    setTodos((currentTodos) =>
+      currentTodos.map((todo) =>
+        todo.id === id
+          ? { ...todo, completed: !todo.completed }
+          : todo
+      )
+    )
+  }
+
+  function handleDeleteTodo(id) {
+    setTodos((currentTodos) =>
+      currentTodos.filter((todo) => todo.id !== id)
+    )
+  }
+
 
   return (
     <main className="app">
@@ -39,7 +65,18 @@ function app () {
 
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>{todo.text}</li>
+          <li key={todo.id}>
+            <label>
+              <input
+              type="checkbox"
+              checked={todo.completed}
+              onChange={() => handleToggleTodo(todo.id)}
+              />
+          <span className={todo.completed ? 'completed' : ''}>
+          {todo.text}
+           </span>
+          </label>
+        </li>
         ))}
       </ul>
     </main>
