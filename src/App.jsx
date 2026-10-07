@@ -1,3 +1,4 @@
+import TodoItem from './TodoItem'
 import { useState } from 'react'
 import './App.css'
 
@@ -57,19 +58,12 @@ function app () {
 
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>
-            <label>
-              <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={() => handleToggleTodo(todo.id)}
-              />
-          <span className={todo.completed ? 'completed' : ''}>
-          {todo.text}
-           </span>
-          </label>
-          <button type="button" onClick={() => handleDeleteTodo(todo.id)}>Ta bort</button>
-        </li>
+          <TodoItem
+          key={todo.id}
+          todo={todo}
+          onToggle={handleToggleTodo}
+         onDelete={handleDeleteTodo}
+        />
         ))}
       </ul>
     </main>
