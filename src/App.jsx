@@ -21,31 +21,17 @@ function app () {
     setInputText('')
   }
 
-  function handleToggleTodo(id) {
-  setTodos((currentTodos) =>
+    function handleToggleTodo(id) {
+    setTodos((currentTodos) =>
     currentTodos.map((todo) =>
       todo.id === id
         ? { ...todo, completed: !todo.completed }
         : todo
-    )
-  )
-}
-
-function handleToggleTodo(id) {
-    setTodos((currentTodos) =>
-      currentTodos.map((todo) =>
-        todo.id === id
-          ? { ...todo, completed: !todo.completed }
-          : todo
       )
     )
   }
 
-  function handleDeleteTodo(id) {
-    setTodos((currentTodos) =>
-      currentTodos.filter((todo) => todo.id !== id)
-    )
-  }
+
 
 
   return (
@@ -76,6 +62,7 @@ function handleToggleTodo(id) {
           {todo.text}
            </span>
           </label>
+          <button type="button" onClick={() => handleDeleteTodo(todo.id)}>Ta bort</button>
         </li>
         ))}
       </ul>
