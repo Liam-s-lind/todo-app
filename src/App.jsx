@@ -1,25 +1,19 @@
+import TodoForm from './TodoForm'
 import TodoItem from './TodoItem'
 import { useState } from 'react'
 import './App.css'
 
-function app () {
+function App () {
   const [todos, setTodos] = useState([])
-  const [inputText, setInputText] = useState('')
 
-  function handleSubmit(event) {
-    event.preventDefault()
+  function handleAddTodo(text) {
+  const newTodo = {
+    id: crypto.randomUUID(),
+    text: text,
+    completed: false,
+  }
 
-    const trimmedText = inputText.trim()
-    if (trimmedText === '') return
-
-    const newTodo = {
-      id: crypto.randomUUID(),
-      text: trimmedText,
-      completed: false,
-    }
-
-    setTodos((currentTodos) => [...currentTodos, newTodo])
-    setInputText('')
+  setTodos((currentTodos) => [...currentTodos, newTodo])
   }
 
     function handleDeleteTodo(id) {
@@ -45,16 +39,7 @@ function app () {
     <main className="app">
       <h1>Min att göra-lista</h1>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="todo-input">Ny uppgift</label>
-        <input
-          id="todo-input"
-          type="text"
-          value={inputText}
-          onChange={(event) => setInputText(event.target.value)}
-        />
-        <button type="submit">Lägg till</button>
-      </form>
+      <TodoForm onAddTodo={handleAddTodo} />
 
       <ul>
         {todos.map((todo) => (
@@ -70,4 +55,4 @@ function app () {
   )
 }
 
-export default app
+export default App
