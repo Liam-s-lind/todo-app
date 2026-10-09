@@ -1,6 +1,6 @@
 # Min ToDo-app
-Videoredovisning: Länken till min Teams-inspelning läggs in här efter att jag spelat in den.
-
+Videoredovisning: [Länken till min Teams-inspelning läggs in här efter att jag spelat in den.] 
+https://funet-my.sharepoint.com/:v:/g/personal/3ggyhmu26_siljli_folkuniversitetet_nu/IQDyA7HoZiN_QbBWEtIOMAEUASYR_xYp1VK11MA_d0K9E44?e=NdaXmQ&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbE1vZGUiOiJtaXMiLCJyZWZlcnJhbFZpZXciOiJwb3N0cm9sbC1jb3B5bGluayIsInJlZmVycmFsUGxheWJhY2tTZXNzaW9uSWQiOiJjNDAzZmQ2OC02MjIyLTQ0NDQtYTAwOC05NGZhNzQ4ZjRjMGIifX0%3D
 ## Om appen
 
 Det här är en ToDo-app byggd med React. Man kan lägga till uppgifter med knappen eller Enter, markera dem som klara eller ogjorda och ta bort en enskild uppgift. Ett tomt fält eller bara mellanslag skapar ingen uppgift.
